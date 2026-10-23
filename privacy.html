@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy for Deutsch بالعربي</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+        h1, h2 { color: #111; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Privacy Policy for Deutsch بالعربي</h1>
+    <p><strong>Last updated:</strong> October 23, 2026</p>
+    <p><strong>Developer:</strong> moaz76943-creator</p>
+    <p><strong>Contact:</strong> For privacy inquiries, please open an issue on the GitHub repository or contact via the app's feedback mechanism if available.</p>
+
+    <h2>Introduction</h2>
+    <p>Deutsch بالعربي is an offline-first German language learning application designed for Arabic speakers. We prioritize user privacy. This policy explains how the app accesses, processes, and handles data.</p>
+    <p>The app is designed to function primarily without an internet connection. Most learning content, progress, and features operate entirely on your device.</p>
+
+    <h2>Data We Access and Process</h2>
+    <h3>Microphone / Audio (RECORD_AUDIO)</h3>
+    <ul>
+        <li><strong>Purpose:</strong> The pronunciation trainer feature may request microphone access to record your voice for on-device speech analysis or practice (e.g., comparing pronunciation).</li>
+        <li><strong>Collection:</strong> Audio is processed <strong>locally on your device only</strong>. We do not transmit, store on servers, or share audio recordings.</li>
+        <li><strong>Data Safety:</strong> This is on-device processing. No voice data is collected or shared off the device.</li>
+        <li>You can deny the permission; the feature will degrade gracefully (text-based practice remains available).</li>
+    </ul>
+
+    <h3>Network Access (INTERNET, ACCESS_NETWORK_STATE)</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Optional features such as checking for content updates, downloading additional packs (if implemented), or Play Integrity checks. The core app works offline.</li>
+        <li><strong>Data:</strong> No personal data is required or collected via the network for core functionality. Any network requests are minimal and for app functionality only.</li>
+    </ul>
+
+    <h3>Local Storage</h3>
+    <ul>
+        <li>Learning progress, preferences, and vocabulary data are stored locally on your device (using SharedPreferences or similar secure local storage).</li>
+        <li>We do not upload this data to any servers.</li>
+    </ul>
+
+    <h3>No Other Sensitive Data</h3>
+    <p>The app does <strong>not</strong> collect:</p>
+    <ul>
+        <li>Location data</li>
+        <li>Contacts, calendar, or SMS</li>
+        <li>Photos or videos (storage permissions are explicitly removed)</li>
+        <li>Advertising IDs or tracking data</li>
+        <li>Account information (no user accounts required for core use)</li>
+        <li>Any personal identifiable information (PII)</li>
+    </ul>
+
+    <h2>Data Safety Declaration (for Google Play)</h2>
+    <ul>
+        <li><strong>Data collected:</strong> None (or only anonymous on-device processing).</li>
+        <li><strong>Data shared:</strong> None.</li>
+        <li><strong>Security practices:</strong> Data encrypted in transit where applicable (HTTPS); local data protected by Android sandbox.</li>
+        <li><strong>Users can request data deletion:</strong> Since no server-side data is stored, uninstalling the app removes all local data. No account deletion needed.</li>
+    </ul>
+
+    <h2>Permissions Summary</h2>
+    <table>
+        <thead>
+            <tr><th>Permission</th><th>Required?</th><th>Purpose</th><th>Off-device transmission?</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>RECORD_AUDIO</td><td>Optional</td><td>Pronunciation practice (on-device)</td><td>No</td></tr>
+            <tr><td>INTERNET</td><td>Optional</td><td>Updates / integrity checks</td><td>Minimal, no PII</td></tr>
+            <tr><td>ACCESS_NETWORK_STATE</td><td>Optional</td><td>Connectivity checks</td><td>No</td></tr>
+            <tr><td>Storage permissions</td><td>Removed</td><td>Not used</td><td>N/A</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Children's Privacy</h2>
+    <p>The app is suitable for general audiences. We do not knowingly collect data from children under 13.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this policy. The latest version will always be available at this URL and linked from the Play Store listing and within the app (Settings / About).</p>
+
+    <h2>Contact</h2>
+    <p>For questions about this privacy policy or data practices, please contact the developer via GitHub Issues on the project repository.</p>
+
+    <hr>
+    <p><em>This privacy policy is required for Google Play publication, especially due to the RECORD_AUDIO permission. Link this page in the Play Console App content section and display a link inside the app.</em></p>
+</body>
+</html>
