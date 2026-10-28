@@ -14,18 +14,18 @@
 </head>
 <body>
     <h1>Privacy Policy for Deutsch بالعربي</h1>
-    <p><strong>Last updated:</strong> October 25, 2026</p>
-    <p><strong>Developer:</strong> moaz76943-creator</p>
-    <p><strong>Contact:</strong> For privacy inquiries, please open an issue on the GitHub repository or contact via the app's feedback mechanism if available.</p>
+    <p><strong>Last updated:</strong> October 28, 2026</p>
+    <p><strong>Developer / Entity:</strong> moaz76943-creator (this name matches the Google Play developer account listing)</p>
+    <p><strong>Contact for privacy inquiries:</strong> Open a GitHub issue on the deutsch-bilarabi-privacy repository or use any in-app feedback mechanism. We will respond to legitimate privacy requests.</p>
 
     <h2>Introduction</h2>
-    <p>Deutsch بالعربي is an offline-first German language learning application designed for Arabic speakers. We prioritize user privacy. This policy explains how the app accesses, processes, and handles data.</p>
+    <p>Deutsch بالعربي is an offline-first German language learning application designed for Arabic speakers. We prioritize user privacy. This policy explains how the app accesses, processes, and handles data in compliance with Google Play User Data policy, Data safety requirements, and Core App Quality guidelines.</p>
     <p>The app is designed to function primarily without an internet connection. Most learning content, progress, and features operate entirely on your device.</p>
 
     <h2>Data We Access and Process</h2>
     <h3>Microphone / Audio (RECORD_AUDIO)</h3>
     <ul>
-        <li><strong>Purpose:</strong> The pronunciation trainer feature may request microphone access to record your voice for on-device speech analysis or practice (e.g., comparing pronunciation).</li>
+        <li><strong>Purpose:</strong> The optional pronunciation trainer feature may request microphone access to record your voice for on-device speech analysis or practice (e.g., comparing pronunciation). Permission is requested at the time of use (not at app launch), with a clear rationale shown to the user, and the feature degrades gracefully if denied.</li>
         <li><strong>Collection:</strong> Audio is processed <strong>locally on your device only</strong>. We do not transmit, store on servers, or share audio recordings. Per Google Play Data safety guidelines, pure on-device processing that never leaves the device is not considered "collection" or "sharing".</li>
         <li><strong>Data Safety:</strong> No voice data is collected or shared off the device. Declare "No" for Audio files / Voice or sound recordings in the Play Console Data safety form.</li>
         <li>You can deny the permission; the feature will degrade gracefully (text-based practice remains available).</li>
@@ -34,32 +34,33 @@
     <h3>Network Access (INTERNET, ACCESS_NETWORK_STATE)</h3>
     <ul>
         <li><strong>Purpose:</strong> Optional features such as checking for content updates, downloading additional packs (if implemented), or Play Integrity / App Integrity checks. The core app works offline.</li>
-        <li><strong>Data:</strong> No personal data is required or collected via the network for core functionality. Any network requests are minimal and for app functionality only.</li>
+        <li><strong>Data:</strong> No personal data is required or collected via the network for core functionality. Any network requests are minimal and for app functionality only. Data in transit is encrypted (HTTPS).</li>
     </ul>
 
     <h3>Local Storage</h3>
     <ul>
-        <li>Learning progress, preferences, and vocabulary data are stored locally on your device (using SharedPreferences or similar secure local storage).</li>
-        <li>We do not upload this data to any servers.</li>
+        <li>Learning progress, preferences, and vocabulary data are stored locally on your device (using SharedPreferences or similar secure local storage, with encryption where sensitive).</li>
+        <li>We do not upload this data to any servers. Uninstalling the app deletes all local data.</li>
     </ul>
 
     <h3>No Other Sensitive Data</h3>
-    <p>The app does <strong>not</strong> collect:</p>
+    <p>The app does <strong>not</strong> collect or access:</p>
     <ul>
         <li>Location data</li>
         <li>Contacts, calendar, or SMS</li>
-        <li>Photos or videos (storage permissions are explicitly removed)</li>
+        <li>Photos or videos (storage and media permissions are explicitly removed via tools:node="remove")</li>
         <li>Advertising IDs or tracking data</li>
         <li>Account information (no user accounts required for core use)</li>
         <li>Any personal identifiable information (PII)</li>
+        <li>Device identifiers beyond what is necessary for Play Integrity (and only when network is available)</li>
     </ul>
 
     <h2>Data Safety Declaration (for Google Play)</h2>
     <ul>
-        <li><strong>Data collected:</strong> None. On-device processing of optional microphone input does not leave the device and is not declared as collected data.</li>
+        <li><strong>Data collected:</strong> None. On-device processing of optional microphone input does not leave the device and is not declared as collected data. No data is transmitted off-device for collection purposes.</li>
         <li><strong>Data shared:</strong> None.</li>
-        <li><strong>Security practices:</strong> Data encrypted in transit where applicable (HTTPS); local data protected by Android sandbox. App uses Google Play App Signing and recommends Play Integrity API for integrity protection.</li>
-        <li><strong>Users can request data deletion:</strong> Since no server-side data is stored, uninstalling the app removes all local data. No account deletion needed.</li>
+        <li><strong>Security practices:</strong> Data encrypted in transit where applicable (HTTPS); local data protected by Android sandbox and encryption where used. App uses Google Play App Signing (upload key separate) and Play Integrity API for integrity protection.</li>
+        <li><strong>Users can request data deletion:</strong> Since no server-side data is stored, uninstalling the app removes all local data. No account deletion needed. Contact us for any questions.</li>
     </ul>
 
     <h2>Permissions Summary</h2>
@@ -68,10 +69,11 @@
             <tr><th>Permission</th><th>Required?</th><th>Purpose</th><th>Off-device transmission?</th></tr>
         </thead>
         <tbody>
-            <tr><td>RECORD_AUDIO</td><td>Optional</td><td>Pronunciation practice (on-device only)</td><td>No</td></tr>
+            <tr><td>RECORD_AUDIO</td><td>Optional (runtime, on-demand)</td><td>Pronunciation practice (on-device only)</td><td>No</td></tr>
             <tr><td>INTERNET</td><td>Optional</td><td>Updates / integrity checks</td><td>Minimal, no PII</td></tr>
             <tr><td>ACCESS_NETWORK_STATE</td><td>Optional</td><td>Connectivity checks</td><td>No</td></tr>
-            <tr><td>Storage permissions</td><td>Removed</td><td>Not used</td><td>N/A</td></tr>
+            <tr><td>Storage / media permissions</td><td>Removed</td><td>Not used</td><td>N/A</td></tr>
+            <tr><td>POST_NOTIFICATIONS</td><td>Removed (release)</td><td>Not used</td><td>N/A</td></tr>
         </tbody>
     </table>
 
@@ -79,20 +81,21 @@
     <p>To meet Google Play security standards and Core App Quality guidelines:</p>
     <ul>
         <li>The app is distributed via Google Play App Signing (upload key separate from the signing key managed by Google).</li>
-        <li>We recommend and use the Play Integrity API for device and app integrity checks where network is available.</li>
-        <li>As of August 31, 2026, new apps and updates must target Android 16 (API level 36) or higher. Existing apps must target at least API 35 to remain available to new users on newer devices. Builds should set targetSdkVersion = 36.</li>
+        <li>We use the Play Integrity API for device and app integrity checks where network is available (requires CLOUD_PROJECT_NUMBER configured for production).</li>
+        <li>As of August 31, 2026, new apps and updates must target Android 16 (API level 36) or higher. This app targets API 36. Existing apps must target at least API 35 to remain available to new users on newer devices.</li>
+        <li>allowBackup is false; cleartext traffic is disabled; data extraction rules are configured.</li>
     </ul>
 
     <h2>Children's Privacy</h2>
     <p>The app is suitable for general audiences. We do not knowingly collect data from children under 13.</p>
 
     <h2>Changes to This Policy</h2>
-    <p>We may update this policy. The latest version will always be available at this URL and linked from the Play Store listing and within the app (Settings / About).</p>
+    <p>We may update this policy. The latest version will always be available at this URL and linked from the Play Store listing and within the app (Settings / About). Check the "Last updated" date.</p>
 
     <h2>Contact</h2>
-    <p>For questions about this privacy policy or data practices, please contact the developer via GitHub Issues on the project repository.</p>
+    <p>For questions about this privacy policy or data practices, please contact the developer via GitHub Issues on this repository (moaz76943-creator/deutsch-bilarabi-privacy).</p>
 
     <hr>
-    <p><em>This privacy policy is required for Google Play publication, especially due to the RECORD_AUDIO permission. Link this page in the Play Console App content section and display a link inside the app. Preferred stable URL: enable GitHub Pages for https://moaz76943-creator.github.io/deutsch-bilarabi-privacy/privacy.html</em></p>
+    <p><em>This privacy policy is required for Google Play publication, especially due to the RECORD_AUDIO permission. Link this page in the Play Console App content section (Privacy policy URL) and display a link inside the app. Preferred stable URL: enable GitHub Pages for https://moaz76943-creator.github.io/deutsch-bilarabi-privacy/privacy.html (or root if index.html is added). Ensure the URL is public, active, non-geofenced, and not a PDF.</em></p>
 </body>
 </html>
