@@ -14,21 +14,31 @@ An `index.html` redirect has been added so both the root URL and `/privacy.html`
 
 ## Enable the stable public URL (REQUIRED — current risk of rejection)
 
-**Action needed now:** The URL currently returns 404 because Pages is not enabled.
+**CRITICAL: Action required before Play Console submission.** As of November 2, 2026, the URL returns 404 because GitHub Pages is not enabled for this repository. This is the primary remaining rejection risk.
 
 1. In this repository: **Settings → Pages**
 2. Source: Deploy from branch `main` / `/ (root)`
 3. Save. GitHub will publish to:
    - `https://moaz76943-creator.github.io/deutsch-bilarabi-privacy/` (redirects to privacy.html)
    - `https://moaz76943-creator.github.io/deutsch-bilarabi-privacy/privacy.html`
-4. Verify the URL loads in a browser (no login required, works without JavaScript).
-5. Paste the preferred URL into Play Console → App content → Privacy policy and confirm it is linked from the in-app Settings/About screen.
+4. Verify the URL loads in a browser (no login required, works without JavaScript, not a PDF).
+5. Paste the preferred URL into Play Console → App content → Privacy policy and confirm it is linked from the in-app Settings/About screen (constant `kPrivacyPolicyUrl` in the app).
 
 Until Pages is enabled the URL returns 404 and the app risks rejection during review or Data safety validation. Once live, the policy is ready for production release.
+
+## Current compliance status (November 2, 2026)
+
+- **Target SDK**: 36 (Android 16) — meets August 31, 2026 requirement for new apps/updates. Extension window closed Nov 1.
+- **Permissions**: Minimal; only optional RECORD_AUDIO (on-device only). Storage/media permissions explicitly removed. No restricted permissions without justification.
+- **Privacy policy**: Content complete and accurate; **URL not yet live** (Pages disabled).
+- **Data Safety**: Matches policy (no collection/sharing). Local deletion via uninstall documented.
+- **Signing**: Release signing enforced; Play App Signing expected.
+- **Integrity**: Play Integrity API integrated (client + dependency).
+- **Other**: allowBackup=false, cleartext disabled, minify/shrink enabled, prominent disclosure for mic.
 
 ## Contents
 - `privacy.html` — full policy covering permissions, Data Safety, integrity, target SDK, children’s privacy, user rights/data deletion, and contact.
 - `index.html` — root redirect for cleaner URL.
 
-## Latest compliance improvement (this run)
-Updated README to flag the non-live privacy policy URL as the primary remaining rejection risk and provided step-by-step enablement instructions. All other areas (target SDK 36, minimal permissions with on-device microphone only, release signing enforcement, Play Integrity, clear deletion path) are already compliant.
+## Latest compliance improvement (this run — 2026-11-02)
+Updated README with current date confirmation that the privacy policy URL remains non-live (404) and is the sole major rejection risk. Strengthened step-by-step enablement instructions and added a concise current compliance status summary. All other areas remain compliant; enable GitHub Pages to clear the final blocker for production release.
