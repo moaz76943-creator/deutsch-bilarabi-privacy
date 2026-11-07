@@ -14,7 +14,7 @@ An `index.html` redirect has been added so both the root URL and `/privacy.html`
 
 ## Enable the stable public URL (REQUIRED — current risk of rejection)
 
-**CRITICAL: Action required before Play Console submission.** As of November 7, 2026, the URL still returns 404 because GitHub Pages is not enabled for this repository. This remains the primary remaining rejection risk.
+**CRITICAL: Action required before Play Console submission.** As of November 8, 2026, the URL still returns 404 because GitHub Pages is not enabled for this repository. This remains the primary remaining rejection risk.
 
 1. In this repository: **Settings → Pages**
 2. Source: Deploy from branch `main` / `/ (root)`
@@ -26,11 +26,11 @@ An `index.html` redirect has been added so both the root URL and `/privacy.html`
 
 Until Pages is enabled the URL returns 404 and the app risks rejection during review or Data safety validation. Once live, the policy is ready for production release.
 
-## Current compliance status (November 7, 2026)
+## Current compliance status (November 8, 2026)
 
 - **Target SDK**: 36 (Android 16) — meets August 31, 2026 requirement for new apps/updates. Extension window closed Nov 1.
-- **Permissions**: Minimal; only optional RECORD_AUDIO (on-device only). Storage/media permissions explicitly removed. No restricted permissions without justification.
-- **Privacy policy**: Content complete and accurate; **URL not yet live** (Pages disabled — verified 404).
+- **Permissions**: Minimal; only optional RECORD_AUDIO (on-device only). Storage/media permissions explicitly removed. No restricted permissions without justification. Release builds enforce no INTERNET/ACCESS_NETWORK_STATE (fully offline design).
+- **Privacy policy**: Content complete and accurate; **URL not yet live** (Pages disabled — verified 404 on 2026-11-08).
 - **Data Safety**: Matches policy (no collection/sharing). Local deletion via uninstall documented.
 - **Signing**: Release signing enforced; Play App Signing expected.
 - **Integrity**: Play Integrity API integrated (client + dependency).
@@ -40,5 +40,5 @@ Until Pages is enabled the URL returns 404 and the app risks rejection during re
 - `privacy.html` — full policy covering permissions, Data Safety, integrity, target SDK, children’s privacy, user rights/data deletion, and contact.
 - `index.html` — root redirect for cleaner URL.
 
-## Latest compliance improvement (this run — 2026-11-07)
+## Latest compliance improvement (this run — 2026-11-08)
 Updated README date and confirmed the privacy policy public URL continues to return 404 (GitHub Pages still disabled). This is the sole major remaining rejection risk for production release. All other areas (target SDK 36, permissions, signing, integrity protection, Data Safety alignment, security configs) remain compliant. Enable GitHub Pages immediately to clear the final blocker.
