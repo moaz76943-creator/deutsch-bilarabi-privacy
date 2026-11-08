@@ -14,14 +14,14 @@
 </head>
 <body>
     <h1>Privacy Policy for Deutsch بالعربي</h1>
-    <p><strong>Last updated:</strong> November 1, 2026</p>
-    <p><strong>Developer / Entity:</strong> moaz76943-creator (this name matches the Google Play developer account listing)</p>
-    <p><strong>Contact for privacy inquiries:</strong> Open a GitHub issue on the deutsch-bilarabi-privacy repository or use any in-app feedback mechanism. We will respond to legitimate privacy requests within a reasonable time.</p>
+    <p><strong>Last updated:</strong> November 8, 2026</p>
+    <p><strong>Developer / Entity:</strong> moaz76943-creator (matches Google Play developer account listing)</p>
     <p><strong>Public URL:</strong> https://moaz76943-creator.github.io/deutsch-bilarabi-privacy/privacy.html</p>
+    <p><strong>Contact for privacy inquiries:</strong> Open a GitHub issue on the deutsch-bilarabi-privacy repository or use the in-app feedback / privacy dialog. We respond to legitimate privacy requests.</p>
 
     <h2>Introduction</h2>
     <p>Deutsch بالعربي is an offline-first German language learning application designed for Arabic speakers. We prioritize user privacy. This policy explains how the app accesses, processes, and handles data in compliance with Google Play User Data policy, Data safety requirements, Core App Quality guidelines, and security standards.</p>
-    <p>The app is designed to function primarily without an internet connection. Most learning content, progress, and features operate entirely on your device.</p>
+    <p>The app is designed to function entirely without an internet connection. Learning content, progress, and features operate on your device only. No network permissions are declared.</p>
 
     <h2>Data We Access and Process</h2>
     <h3>Microphone / Audio (RECORD_AUDIO)</h3>
@@ -33,11 +33,10 @@
         <li><strong>Recommended prominent disclosure text (show immediately before the system permission dialog):</strong> "Deutsch بالعربي needs access to your microphone to analyze your pronunciation on-device for practice. Audio never leaves your device and is not stored or shared."</li>
     </ul>
 
-    <h3>Network Access (INTERNET, ACCESS_NETWORK_STATE)</h3>
+    <h3>Network Access</h3>
     <ul>
-        <li><strong>Purpose:</strong> Optional features such as checking for content updates, downloading additional packs (if implemented), or Play Integrity checks. The core app works offline.</li>
-        <li><strong>Data:</strong> No personal data is required or collected via the network for core functionality. Any network requests are minimal and for app functionality only. Data in transit uses modern cryptography (HTTPS).</li>
-        <li><strong>Play Integrity:</strong> Integrity tokens may be obtained from Google Play services for app/device integrity verification. These tokens do not contain personal user data and are not used for tracking or advertising. They are processed according to Google's terms and are not stored by us beyond the immediate check.</li>
+        <li><strong>No network permissions declared.</strong> The app does not request or use <code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>, or related permissions. This is enforced in the manifests and quality-gate tests to keep the app fully offline.</li>
+        <li>No data can leave the device via the network. Core functionality does not depend on connectivity.</li>
     </ul>
 
     <h3>Local Storage</h3>
@@ -55,18 +54,18 @@
         <li>Advertising IDs or tracking data</li>
         <li>Account information (no user accounts required for core use)</li>
         <li>Any personal identifiable information (PII)</li>
-        <li>Device identifiers beyond what is necessary for Play Integrity (and only when network is available)</li>
+        <li>Device identifiers for tracking or advertising</li>
     </ul>
 
     <h2>Data Safety Declaration (for Google Play)</h2>
     <p>Exact answers for the Play Console Data safety form (must match this policy):</p>
     <ul>
         <li><strong>Does your app collect or share any of the required user data types?</strong> No</li>
-        <li><strong>Data collected:</strong> None. On-device processing of optional microphone input does not leave the device and is not declared as collected data. Play Integrity checks do not involve collection of user personal data.</li>
+        <li><strong>Data collected:</strong> None. On-device processing of optional microphone input does not leave the device and is not declared as collected data. No network access exists, so no off-device transmission is possible.</li>
         <li><strong>Data shared:</strong> None.</li>
-        <li><strong>Is all of the user data collected by your app encrypted in transit?</strong> N/A (no data collected); any network traffic uses HTTPS.</li>
+        <li><strong>Is all of the user data collected by your app encrypted in transit?</strong> N/A (no data collected; no network traffic from the app).</li>
         <li><strong>Do you provide a way for users to request that their data is deleted?</strong> Yes — see the dedicated section below. Uninstalling the app removes all local data. No server-side data exists.</li>
-        <li><strong>Security practices:</strong> Data encrypted in transit where applicable (HTTPS); local data protected by Android sandbox and encryption where used. App uses Google Play App Signing and Play Integrity API.</li>
+        <li><strong>Security practices:</strong> Local data protected by Android sandbox and encryption where used. App uses Google Play App Signing. Release builds enforce minification, resource shrinking, and signing. Native libraries (including SQLite via sqlite3_flutter_libs) are built with NDK r28+ for 16 KB page size alignment, meeting Google Play's page size compatibility requirements for apps targeting API 35+.</li>
     </ul>
 
     <h2>Your Rights and Data Deletion</h2>
@@ -84,9 +83,8 @@
             <tr><th>Permission</th><th>Required?</th><th>Purpose</th><th>Off-device transmission?</th></tr>
         </thead>
         <tbody>
-            <tr><td>RECORD_AUDIO</td><td>Optional (runtime, on-demand)</td><td>Pronunciation practice (on-device only)</td><td>No</td></tr>
-            <tr><td>INTERNET</td><td>Optional</td><td>Updates / integrity checks</td><td>Minimal, no PII</td></tr>
-            <tr><td>ACCESS_NETWORK_STATE</td><td>Optional</td><td>Connectivity checks</td><td>No</td></tr>
+            <tr><td>RECORD_AUDIO</td><td>Optional (runtime, on-demand)</td><td>Pronunciation practice (on-device)</td><td>No</td></tr>
+            <tr><td>INTERNET / network</td><td>Not declared</td><td>Not used (offline-first)</td><td>No</td></tr>
             <tr><td>Storage / media permissions</td><td>Removed</td><td>Not used</td><td>N/A</td></tr>
             <tr><td>POST_NOTIFICATIONS</td><td>Removed (release)</td><td>Not used</td><td>N/A</td></tr>
         </tbody>
@@ -95,11 +93,12 @@
     <h2>App Integrity, Signing, Target SDK, and Security</h2>
     <ul>
         <li>Distributed via Google Play App Signing (upload key separate from the signing key managed by Google).</li>
-        <li>Play Integrity API for device and app integrity checks (requires CLOUD_PROJECT_NUMBER for production).</li>
-        <li>Targets Android 16 (API level 36), meeting the August 31, 2026 requirement for new apps and updates.</li>
+        <li>Targets Android 16 (API level 36), meeting the August 31, 2026 requirement for new apps and updates. Existing apps need at least API 35 to remain available to new users on newer devices.</li>
+        <li>Native code is compiled with NDK 28.2+ ensuring 16 KB memory page size alignment (required for updates targeting API 35+; enforcement strengthens in 2027).</li>
         <li>allowBackup="false"; usesCleartextTraffic="false"; data extraction rules configured; R8/ProGuard minification and resource shrinking enabled in release.</li>
         <li>Prominent disclosure is shown in-app before any sensitive permission request (e.g., microphone). See recommended text above.</li>
         <li>FLAG_SECURE is set to prevent screenshots of sensitive learning content in the app switcher (disabled only in debug builds).</li>
+        <li>Play Integrity API code is present in the project for potential future use but is inactive under the current offline-first policy (no network permission is declared, so integrity token requests cannot succeed). No user data is involved.</li>
     </ul>
 
     <h2>Children's Privacy</h2>
@@ -112,6 +111,6 @@
     <p>For questions about this privacy policy or data practices, contact the developer via GitHub Issues on the deutsch-bilarabi-privacy repository.</p>
 
     <hr>
-    <p><em>Compliance notes (November 1, 2026): Privacy policy finalized for production. Target SDK 36, minimal permissions, Play App Signing, and Play Integrity declarations remain in place. Enable GitHub Pages (Settings → Pages → Deploy from branch main / root) to make the public URL live before Play Console submission.</em></p>
+    <p><em><strong>Compliance notes:</strong> Link the public URL in Play Console App content (Privacy policy). Complete Data safety form accurately matching the answers above (no collection/sharing). Provide in-app link and prominent disclosure before RECORD_AUDIO. Ensure GitHub Pages is enabled for the public URL. Target SDK 36, signing, 16 KB page size support for native libs, and offline permissions are in place for production readiness.</em></p>
 </body>
 </html>
